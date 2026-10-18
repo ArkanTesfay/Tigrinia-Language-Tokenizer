@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tigrinya-tokenizer"
+version = "0.1.0"
+description = "Subword (BPE) tokenizer for the Eritrean Tigrinya language (Ge'ez script)"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Arkan Mekonen" }]
+keywords = ["tigrinya", "tokenizer", "bpe", "geez", "nlp", "eritrea"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: Tigrinya",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "tokenizers>=0.15",
+    "regex>=2023.12",
+    "tqdm>=4.66",
+    "click>=8.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "pytest-cov>=4.1",
+    "ruff>=0.1",
+]
+
+[project.scripts]
+tigrinya-train = "tigrinya_tokenizer.cli:train"
+tigrinya-encode = "tigrinya_tokenizer.cli:encode"
+tigrinya-decode = "tigrinya_tokenizer.cli:decode"
+tigrinya-stats = "tigrinya_tokenizer.cli:stats"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

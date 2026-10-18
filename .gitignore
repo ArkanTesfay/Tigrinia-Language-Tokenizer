@@ -1,0 +1,29 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+env/
+.tox/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+# Trained tokenizer outputs (keep the sample corpus, ignore user artifacts):
+*.tokenizer.json
+.DS_Store
+
+# OPUS raw downloads (regenerable; see data/opus/README if present).
+# The cleaned, deduped training corpus lives at data/tigrinya_corpus_full.txt
+data/opus/
+
+# Large derived training corpus (88 MB) — rebuild via scripts/build_corpus.py
+data/tigrinya_corpus_full.txt
+
+# Local backup of the pre-retrain tokenizer (not part of the deliverable)
+tokenizer_old_32k_smallcorpus.json
+.idea/
+.vscode/
